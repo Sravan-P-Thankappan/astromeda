@@ -5,6 +5,7 @@ import { Link,useNavigate } from 'react-router-dom'
 const AdminNav = () => {
     const navigate = useNavigate()
     const logout = ()=>{
+        localStorage.removeItem('admin')
          navigate('/admin')  
     }
     return (

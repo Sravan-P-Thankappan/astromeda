@@ -9,6 +9,7 @@ const Login = () => {
 
     const navigate = useNavigate()
     const [inputData, setInputData] = useState({})
+    const [error,setError] = useState('')
 
     const handleInput = (data) => {
 
@@ -31,6 +32,7 @@ const Login = () => {
             })
             .catch((er) => {
                 console.log(er.response.data.message)
+                setError(er.response.data.message)
             })
     }
 
@@ -45,6 +47,8 @@ const Login = () => {
 
         <FormContainer className='min-h-screen' title={'Login'}>
             <form onSubmit={handleLogin}>
+                <p className='text-red-500 text-sm text-center mb-1' 
+                htmlFor="">{error}</p>
                 <Input
                     type='email'
                     placeHolder='Your Email'
