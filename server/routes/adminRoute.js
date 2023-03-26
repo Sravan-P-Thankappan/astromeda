@@ -1,9 +1,9 @@
 
 const router = require('express').Router()
+const adminController = require('../controller/adminController')
 
 
-
-router.get('/',(req,res)=>res.send('admin route'))
+router.post('/login',adminController.doLogin)
 
 
 
