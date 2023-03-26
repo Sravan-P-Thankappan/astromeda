@@ -12,12 +12,16 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
+const images = express.static('./public')
+
 // ----------database connection-------------
 
 dbConnection()
 
+
 app.use('/api/user',userRoute)
 app.use('/api/admin',adminRoute)
 app.use('/api/product',productRoute)
+app.use('/api/images',images)
 
 app.listen(port,()=>console.log('server started on port:',port)) 

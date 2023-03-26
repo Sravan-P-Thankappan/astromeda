@@ -6,7 +6,7 @@ const Input = (props) => {
     const handleInput = (e)=>{
         
         const data = {[e.target.name]:e.target.value}
-        console.log(data)
+
         props.onChangeInput(data)
     }
     return (
@@ -15,7 +15,8 @@ const Input = (props) => {
             className="block border border-grey-light w-full p-3 rounded mb-4"
             name={props.name}
             placeholder={props.placeHolder}
-            onChange={handleInput}
+            onChange={handleInput}        
+            defaultValue={props.defaultValue}
             />
     )
 }

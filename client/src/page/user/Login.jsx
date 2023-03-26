@@ -24,7 +24,8 @@ const Login = () => {
 
         axios.post('http://localhost:5000/api/user/login',inputData)
             .then((res) => {
-           
+               
+              
                navigate('/home')
             })
             .catch((er) => {
