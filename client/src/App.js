@@ -29,9 +29,11 @@ function App() {
 
           <Route exact path='/' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/admin' element={<AdminLogin />} />
 
+          <Route path='/home' element={<Home />} />
+
+          <Route path='/admin' element={<AdminLogin />} />
+          
           <Route path='/admin/home' element={<AdminHOme />}>
             <Route path='dashboard' element={<Dashboard />} />      
             <Route path='addproduct' element={<AddProduct />} />           

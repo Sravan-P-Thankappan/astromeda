@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from "../../components/button/Button";
 import Input from "../../components/input/Input";
 import { Link, useNavigate } from 'react-router-dom'
@@ -25,15 +25,21 @@ const Login = () => {
         axios.post('http://localhost:5000/api/user/login',inputData)
             .then((res) => {
                
-              
+             localStorage.setItem('user',res.data.name)
+              console.log(res.data)
                navigate('/home')
             })
             .catch((er) => {
                 console.log(er.response.data.message)
             })
-
- 
     }
+
+    useEffect(()=>{       
+     const user =  localStorage.getItem('user')
+      if(user) navigate('/home')
+    },[])
+
+    
 
     return (
 

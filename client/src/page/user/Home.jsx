@@ -10,8 +10,9 @@ const Home = () => {
   
 
   const [products, setProducts] = useState([])
+  const [user,setUser] = useState(false)
   useEffect(() => {
-
+    
     axios.get('http://localhost:5000/api/product/products')
       .then((response) => {
         setProducts(response.data)
@@ -20,6 +21,7 @@ const Home = () => {
       .catch((er) => {
          console.log(er)
       })
+
 
   }, [])
 

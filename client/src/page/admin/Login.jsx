@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Button from "../../components/button/Button";
 import FormContainer from '../../components/formContainer/FormContainer';
@@ -26,11 +26,21 @@ const Login = () => {
             .then((res) => {
 
                 navigate('/admin/home')
+                localStorage.setItem('admin',true)
             })
             .catch((er) => {
                 console.log(er.response.data.message)
             })
     }
+
+    useEffect(()=>{
+     const admin =    localStorage.getItem('admin')
+     if (admin) {
+          navigate('/admin/home')
+     }
+    },[])
+
+    
 
     return (
         <FormContainer className='min-h-screen' title={'Admin Login'}>
